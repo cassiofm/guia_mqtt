@@ -1,12 +1,47 @@
-## Welcome to GitHub TESTE
+## Guia MQTT
 
-You can use the [editor on GitHub](https://github.com/cassiofm/guia_mqtt/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Este guia é uma série de experimentos feitos com MQTT, não tem nenhuma pretensão didática.
+É suposto que conceitos como Broker, Subscriber, Publisher, Tópico, etc são conhecidos
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### MQTT Fast food
+O primeiro cenário é uma montagem para quando não se tem dispositivos, nem um servidor para instalar um broker, não temos tempo (ou conhecimento) para "codar" um publisher ou um subscriber mas temos muita pressa. Para essas ocasiões podemos usar um broker online gratuito e um programa que simula publishers e subscribers.
 
-### Markdown
+**O Broker:**
+Dentre várias opções online gratuitas (EMQx, HiveMQ, Fluux, Eclipse-Mosquitto, etc) escolhemos o Eclipse-Mosquitto !(https://mosquitto.org) por razões arbitrárias...
+Neste caso, para usar o broker online mosquitto basta nas configurações seguintes aonde pedir o ip do broker adicionarmos:
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+`broker_ip: "test.mosquitto.org"`
+
+Nesta primeira montagem, usaremos a porta 1883, lembramos que este broker é **público** então suas telemetrias podem ser interceptadas por qualquer um, sendo um ambiente somente recomendado para testes.
+
+**O Publisher / Subscriber**
+Para envio e monitoramento das mensagens, usaremos o MQTTBox, este prático programa pode ser bem útil para testes simples. Existem duas opções de instalação:
+
+a) MQTTBox para Windows (pode ser baixado da Loja do Windows 10, o que dá uma certa sensação de segurança).
+
+b) MQTTBox extensão para Chrome (neste caso sode ser usado em outro Sistemas Operacionais que suportem o Chrome).
+
+Eu usei as duas opções, costumo usar o programa, porém sem nenhuma justificativa racional...
+
+Em ambas as opções, depois de instalado, para rodar são necessários alguns parâmetros, a saber:
+
+1 - MQTTClientName -> Você pode colocar o nome que quiser para seu client, neste experimento não afetará em nada
+
+2 - Protocol -> Necessariamente TCP/IP
+
+3 - Host -> test.mosquitto.org
+
+
+![config_mqttbox1](https://user-images.githubusercontent.com/44030856/179358155-8582dd0f-7c63-46dc-a58f-55afaf132099.png)
+
+Após finalizar as configurações, aperte o botão **Save** e pronto, o status de conectado deve aparecer, indicando que houve sucesso.
+
+Para testar a comunicação, devemos criar um publisher e um subscriber, com o mesmo tópico:
+![image](https://user-images.githubusercontent.com/44030856/179361086-ab546920-c332-4aa2-96d2-91f1ee7f70c4.png)
+
+Apertando o botão **Subscribe** , qualquer mensagem que chegar será mostrada
+
+Essa estrutura pode ser usada parcialmente, por exemplo se um dispositivo que publica telemetrias precisa ser testado, utilizamos somente o Broker e o Subscriber.
 
 ```markdown
 Syntax highlighted code block
