@@ -46,9 +46,16 @@ Apertando o botão **Subscribe** , qualquer mensagem que chegar será mostrada
 Essa estrutura pode ser usada parcialmente, por exemplo se um dispositivo que publica telemetrias precisa ser testado, utilizamos somente o Broker e o Subscriber.
 
 
-### MQTT com Publisher feito em Python usando Paho-mqtt
+
+
+## MQTT com Publisher feito em Python usando Paho-mqtt
 
 Neste cenário, usaremos a mesma montagem com uma modificação, no lugar do Publisher utilizaremos um script feito em Python, utilizando a biblioteca Paho MQTT, para evitar problemas, foi criado um ambiente virtual em Python (venv) onde rodamos o script nele, também usamos o Python 3.6
+
+Importante comentar que muitas coisas foram inspiradas do seguinte site:
+
+http://www.steves-internet-guide.com/
+
 
 Utilizamos o VSCode para editar e testar o script.
 
