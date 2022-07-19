@@ -97,5 +97,10 @@ Abaixo a imagem do código no VsCode e a saída no terminal, a mensagem enviada 
 
 
 
+## MQTT com Subscriber feito em Python usando Paho-mqtt
+
+Neste cenário, usaremos a mesma montagem com uma modificação, no lugar do Subscriber utilizaremos um script feito em Python, utilizando a biblioteca Paho MQTT, para evitar problemas, repetindo a tarefa anterior, foi criado um ambiente virtual em Python (venv) onde rodamos o script nele, também usamos o Python 3.6
+
+
 
 
